@@ -111,8 +111,6 @@ set laststatus=2
 set t_Co=256
 set encoding=utf8
 let g:Powerline_symbols='unicode'
-let g:python_author = 'dingyingcai'               " 姓名
-let g:python_email  = 'dingyingcai@baidu.com'     " 邮箱
 
 
 ""vim-airline setting
