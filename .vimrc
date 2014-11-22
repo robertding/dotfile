@@ -14,7 +14,11 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'ervandew/supertab'
+Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
+Plugin 'bufexplorer.zip'
+Plugin 'kien/ctrlp.vim'
+Plugin 'grep.vim'
 
 ""plugin from https://vim-scripts.org/vim/scripts.html
 Plugin 'c.vim'
@@ -24,10 +28,6 @@ Plugin 'Emmet.vim'
 
 ""removed because vim-airline
 ""Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
-""Plugin 'scrooloose/nerdtree'
-""Plugin 'bufexplorer.zip'
-""Plugin 'kien/ctrlp.vim'
-""Plugin 'grep.vim'
 
 call vundle#end()
 
