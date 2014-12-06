@@ -11,19 +11,31 @@ Plugin 'gmarik/Vundle.vim'
 
 ""plugin host on github
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'nvie/vim-flake8'
+Plugin 'kevinw/pyflakes-vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-Plugin 'bufexplorer.zip'
 Plugin 'kien/ctrlp.vim'
 Plugin 'grep.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Shougo/neocomplcache'
+Plugin 'vim-scripts/AutoClose'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-surround'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 ""plugin from https://vim-scripts.org/vim/scripts.html
 Plugin 'c.vim'
 Plugin 'python.vim'
-Plugin 'pythoncomplete'
 Plugin 'Emmet.vim'
 
 ""removed because vim-airline
@@ -38,16 +50,20 @@ filetype plugin indent on
 
 set nu
 syntax enable
+colorscheme molokai
 set background=dark
-"colorscheme morning
+"
 "
 filetype on
 filetype plugin on
 filetype indent on
 
 set nobackup          "禁止自动备份
-set cursorline        "行光标下划线
+set autoread          "文件改动自动加载
+"set cursorline        "行光标下划线
+set wildmenu
 set ruler
+set scrolljump=10     "光标距顶部/底部多少行滚动
 set showmatch         "显示匹配
 set nohlsearch
 set autoindent        "自动缩进
@@ -61,6 +77,14 @@ set autochdir
 
 set backspace=indent,eol,start
 
+""""""python
+au FileType python set cc=78                      " 在78列显示对齐线
+au FileType python set tw=78 " python文件文本最长宽度为78
+
+
+""""""""""
+
+
 ""encoding setting
 
 set fenc=utf-8
@@ -72,18 +96,15 @@ set termencoding=utf-8
 
 imap jj <Esc>
 nmap qq :q<CR>
-imap ss jj:w<CR>
-nmap ss :w<CR>
+imap sf jj:w<CR>
+nmap sf :w<CR>
 
-"" Tlist set
+"" Tagbar set
 
-nmap tt :TlistToggle<CR>
+nmap tt :TagbarToggle<CR>
 set tags=tags;
 
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_WinWidth = 40
+let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
 "let Tlist_Auto_Open = 1
 
 
@@ -95,6 +116,7 @@ let NERDChristmasTree = 1
 let NERDTreeHighlightCursorline = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeDirArrows = 1
+let NERDTreeIgnore=['\.pyc$']
 
 
 ""grep
@@ -121,3 +143,55 @@ let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 "* enable/disable tagbar integration >
 let g:airline#extensions#tagbar#enabled = 1
+
+
+let g:python_author='RobertDing'
+let g:python_email='robertdingx@gmail.com'
+"Python 注释
+
+function InsertPythonComment()
+    exe 'normal'.1.'G'
+    let line = getline('.')
+    if line =~ '^#!.*$' || line =~ '^#.*coding:.*$'
+        return
+    endif
+    normal O
+    call setline('.', '#!/usr/bin/env python')
+    normal o
+    call setline('.', '# -*- coding:utf-8 -*-')
+    normal o
+    call setline('.', '#')
+    normal o
+    call setline('.', '#   Author  :   '.g:python_author)
+    normal o
+    call setline('.', '#   E-mail  :   '.g:python_email)
+    normal o
+    call setline('.', '#   Date    :   '.strftime("%y/%m/%d %H:%M:%S"))
+    normal o
+    call setline('.', '#   Desc    :   ')
+    normal o
+    call setline('.', '#')
+    normal o
+    call setline('.', 'from __future__ import absolute_import, print_function, division, with_statement')
+    call cursor(7, 17)
+endfunction
+
+" F4 添加Python注释
+au FileType python map <F4> :call InsertPythonComment()<cr>
+
+function InsertCommentWhenOpen()
+    if line('$') == 1 && getline(1) == ''
+        call InsertPythonComment()
+    end
+endfunc
+
+" 打开Python文件自动添加注释
+au FileType python :call InsertCommentWhenOpen()
+
+" 对齐线宽度为1
+let g:indent_guides_guide_size = 1
+" vim开始的时候就显示对齐线
+let g:indent_guides_enable_on_vim_startup = 1
+" 从第二级开始显示对齐线
+let g:indent_guides_start_level = 2
+let g:indent_guides_color_change_percent = 80
