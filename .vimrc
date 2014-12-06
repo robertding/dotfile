@@ -60,7 +60,7 @@ filetype indent on
 
 set nobackup          "禁止自动备份
 set autoread          "文件改动自动加载
-"set cursorline        "行光标下划线
+set cursorline        "行光标下划线
 set wildmenu
 set ruler
 set scrolljump=10     "光标距顶部/底部多少行滚动
