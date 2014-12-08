@@ -17,9 +17,7 @@ Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
-Plugin 'grep.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
@@ -37,9 +35,6 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'c.vim'
 Plugin 'python.vim'
 Plugin 'Emmet.vim'
-
-""removed because vim-airline
-""Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
 
 call vundle#end()
 
@@ -105,7 +100,6 @@ nmap tt :TagbarToggle<CR>
 set tags=tags;
 
 let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
-"let Tlist_Auto_Open = 1
 
 
 "" NerdTree set
@@ -119,9 +113,6 @@ let NERDTreeDirArrows = 1
 let NERDTreeIgnore=['\.pyc$']
 
 
-""grep
-nmap <C-i> :Grep<cr>
-
 nmap fh <c-w>h
 nmap fj <c-w>j
 nmap fk <c-w>k
@@ -132,8 +123,6 @@ nmap fl <c-w>l
 set laststatus=2
 set t_Co=256
 set encoding=utf8
-let g:Powerline_symbols='unicode'
-
 
 ""vim-airline setting
 
