@@ -11,14 +11,8 @@ Plugin 'gmarik/Vundle.vim'
 
 ""plugin host on github
 Plugin 'scrooloose/nerdcommenter'
-<<<<<<< HEAD
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'nvie/vim-flake8'
-=======
 Plugin 'kevinw/pyflakes-vim'
 Plugin 'Valloric/YouCompleteMe'
->>>>>>> 8105619018aeff4e095d8a3810f9c8582e15cc09
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
