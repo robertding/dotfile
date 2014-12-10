@@ -10,22 +10,25 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 ""plugin host on github
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'nvie/vim-flake8'
+Plugin 'ervandew/supertab'
+Plugin 'bling/vim-airline'
 
 ""plugin from https://vim-scripts.org/vim/scripts.html
 Plugin 'c.vim'
-Plugin 'bufexplorer.zip'
-Plugin 'SuperTab'
 Plugin 'python.vim'
 Plugin 'pythoncomplete'
-Plugin 'grep.vim'
 Plugin 'Emmet.vim'
 
+""removed because vim-airline
+""Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
+""Plugin 'scrooloose/nerdtree'
+""Plugin 'bufexplorer.zip'
+""Plugin 'kien/ctrlp.vim'
+""Plugin 'grep.vim'
 
 call vundle#end()
 
@@ -98,10 +101,10 @@ let NERDTreeDirArrows = 1
 ""grep
 nmap <C-i> :Grep<cr>
 
-nmap fh <c-h>
-nmap fj <c-j>
-nmap fk <c-k>
-nmap fl <c-l>
+nmap fh <c-w>h
+nmap fj <c-w>j
+nmap fk <c-w>k
+nmap fl <c-w>l
 
 
 ""powerline 
@@ -109,6 +112,13 @@ set laststatus=2
 set t_Co=256
 set encoding=utf8
 let g:Powerline_symbols='unicode'
-let g:python_author = 'dingyingcai'               " 姓名
-let g:python_email  = 'dingyingcai@baidu.com'     " 邮箱
 
+
+""vim-airline setting
+
+"* enable/disable bufferline integration >
+let g:airline#extensions#bufferline#enabled = 1
+"* enable/disable syntastic integration >
+let g:airline#extensions#syntastic#enabled = 1
+"* enable/disable tagbar integration >
+let g:airline#extensions#tagbar#enabled = 1
