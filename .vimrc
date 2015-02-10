@@ -30,8 +30,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mitsuhiko/jinja2'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'beautify-web/js-beautify'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'mileszs/ack.vim'
 
-""plugin from https://vim-scripts.org/vim/scripts.html
 Plugin 'c.vim'
 Plugin 'python.vim'
 Plugin 'Emmet.vim'
@@ -44,9 +49,11 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nu
+set mouse=a
 syntax enable
 colorscheme molokai
 set background=dark
+set nofoldenable
 "
 "
 filetype on
@@ -60,7 +67,7 @@ set wildmenu
 set ruler
 set scrolljump=10     "光标距顶部/底部多少行滚动
 set showmatch         "显示匹配
-set nohlsearch
+set hlsearch
 set autoindent        "自动缩进
 set tabstop=4
 set ignorecase        "搜索忽视大小写
@@ -69,8 +76,14 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autochdir
+set incsearch
+
 
 set backspace=indent,eol,start
+
+" 定义快捷键前缀
+let mapleader=";"
+
 
 """"""python
 au FileType python set cc=78                      " 在78列显示对齐线
@@ -90,9 +103,11 @@ set termencoding=utf-8
 ""normal using map
 
 imap jj <Esc>
-nmap qq :q<CR>
-imap sf jj:w<CR>
-nmap sf :w<CR>
+nmap <leader>q :q<CR>
+nmap <leader>w :w<CR>
+
+nmap ta 0
+nmap te $
 
 "" Tagbar set
 
@@ -161,7 +176,7 @@ function InsertPythonComment()
     normal o
     call setline('.', '#')
     normal o
-    call setline('.', 'from __future__ import absolute_import, print_function, division, with_statement')
+    call setline('.', 'from __future__ import absolute_import, division, with_statement')
     call cursor(7, 17)
 endfunction
 
@@ -184,3 +199,49 @@ let g:indent_guides_enable_on_vim_startup = 1
 " 从第二级开始显示对齐线
 let g:indent_guides_start_level = 2
 let g:indent_guides_color_change_percent = 80
+
+
+"""" pyflake8
+let g:flake8_ignore="E126"
+
+
+"""" tagbat
+" 按位置排序
+let g:tagbar_sort = 0
+
+"""" emmet 
+"" leader key 
+let g:user_emmet_leader_key = ";e"
+
+"""" easy-motion 
+"" 两端查找字符
+nmap <leader><leader>a <Plug>(easymotion-s)
+
+
+""""rainbow parenthese
+let g:rbpt_colorpairs = [
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces

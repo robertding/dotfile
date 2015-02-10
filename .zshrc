@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump autopep8 command-not-found tmux)
+plugins=(git autojump autopep8 command-not-found tmux brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,10 +85,17 @@ alias ll='ls -l'
 alias la='ls -a'
 alias grep='grep --color=auto'
 alias vi='vim'
+alias gitdo="git commit -am '[ignore] ignore me' && git push domote"
+alias gs="git status"
+alias gd="git diff"
+alias gpull="git pull"
+alias gpush="git push"
+alias gc="git commit -am"
 
-alias -s py=vi
-alias -s sh=vi
-alias -s c=vi
-alias -s cpp=vi
-alias -s h=vi
+#alias -s py=vi
+#alias -s sh=vi
+#alias -s c=vi
+#alias -s cpp=vi
+#alias -s h=vi
 
+export PATH="/usr/local/bin:$PATH"
