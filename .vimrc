@@ -84,6 +84,8 @@ set backspace=indent,eol,start
 " 定义快捷键前缀
 let mapleader=";"
 
+"" 直接使用系统粘贴板
+set clipboard=unnamed
 
 """"""python
 au FileType python set cc=78                      " 在78列显示对齐线
@@ -245,3 +247,8 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+
+"""" molokai
+let g:molokai_original=1
+let g:rehash256=1
