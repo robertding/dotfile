@@ -11,7 +11,6 @@ Plugin 'gmarik/Vundle.vim'
 
 ""plugin host on github
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'kevinw/pyflakes-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
@@ -29,7 +28,6 @@ Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mitsuhiko/jinja2'
 Plugin 'Glench/Vim-Jinja2-Syntax'
@@ -37,7 +35,7 @@ Plugin 'beautify-web/js-beautify'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'mileszs/ack.vim'
 
-Plugin 'c.vim'
+""Plugin 'c.vim'
 Plugin 'python.vim'
 Plugin 'Emmet.vim'
 
@@ -150,6 +148,25 @@ let g:airline#extensions#syntastic#enabled = 1
 "* enable/disable tagbar integration >
 let g:airline#extensions#tagbar#enabled = 1
 
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+
 
 let g:python_author='RobertDing'
 let g:python_email='robertdingx@gmail.com'
@@ -193,19 +210,6 @@ endfunc
 
 " 打开Python文件自动添加注释
 au FileType python :call InsertCommentWhenOpen()
-
-" 对齐线宽度为1
-let g:indent_guides_guide_size = 1
-" vim开始的时候就显示对齐线
-let g:indent_guides_enable_on_vim_startup = 1
-" 从第二级开始显示对齐线
-let g:indent_guides_start_level = 2
-let g:indent_guides_color_change_percent = 80
-
-
-"""" pyflake8
-let g:flake8_ignore="E126"
-
 
 """" tagbat
 " 按位置排序
@@ -252,3 +256,4 @@ au Syntax * RainbowParenthesesLoadBraces
 """" molokai
 let g:molokai_original=1
 let g:rehash256=1
+hi String          ctermfg=59
