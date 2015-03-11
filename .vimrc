@@ -34,6 +34,7 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'beautify-web/js-beautify'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'Valloric/vim-operator-highlight'
 
 ""Plugin 'c.vim'
 Plugin 'python.vim'
