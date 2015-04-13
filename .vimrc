@@ -29,15 +29,14 @@ Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'pangloss/vim-javascript'
-Plugin 'mitsuhiko/jinja2'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'beautify-web/js-beautify'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/vim-operator-highlight'
+Plugin 'klen/python-mode'
 
 ""Plugin 'c.vim'
-Plugin 'python.vim'
 Plugin 'Emmet.vim'
 
 call vundle#end()
@@ -140,34 +139,6 @@ set laststatus=2
 set t_Co=256
 set encoding=utf8
 
-""vim-airline setting
-
-"* enable/disable bufferline integration >
-let g:airline#extensions#bufferline#enabled = 1
-"* enable/disable syntastic integration >
-let g:airline#extensions#syntastic#enabled = 1
-"* enable/disable tagbar integration >
-let g:airline#extensions#tagbar#enabled = 1
-
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-
 
 let g:python_author='RobertDing'
 let g:python_email='robertdingx@gmail.com'
@@ -248,13 +219,15 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
 
 """" molokai
 let g:molokai_original=1
 let g:rehash256=1
 hi String          ctermfg=59
+
+"""" operator color
+let g:ophigh_color = "Green"
+
+
+"""" pymode
+let g:pymode_rope = 0
