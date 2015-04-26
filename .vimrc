@@ -231,3 +231,10 @@ let g:ophigh_color = "Green"
 
 """" pymode
 let g:pymode_rope = 0
+
+"""" airline
+let g:airline_powerline_fonts=1
+let g:airline#extensions#syntastic#enabled=1
+let g:airline#extensions#tagbar#enabled=1
+let g:airline#extensions#tmuxline#enabled=1
+let g:airline_theme="powerlineish"
