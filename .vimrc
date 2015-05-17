@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 ""plugin host on github
+Plugin 'rizzatti/dash.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
@@ -231,6 +232,7 @@ let g:ophigh_color = "Green"
 
 """" pymode
 let g:pymode_rope = 0
+let g:pymode_lint_ignore = "E501"
 
 """" airline
 let g:airline_powerline_fonts=1
