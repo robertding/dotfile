@@ -35,7 +35,9 @@ Plugin 'beautify-web/js-beautify'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/vim-operator-highlight'
-Plugin 'klen/python-mode'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+"" Plugin 'klen/python-mode'
 
 ""Plugin 'c.vim'
 Plugin 'Emmet.vim'
@@ -81,14 +83,14 @@ set incsearch
 set backspace=indent,eol,start
 
 " 定义快捷键前缀
-let mapleader=";"
+let mapleader=" "
 
 "" 直接使用系统粘贴板
 set clipboard=unnamed
 
 """"""python
-au FileType python set cc=78                      " 在78列显示对齐线
-au FileType python set tw=78 " python文件文本最长宽度为78
+au FileType python set cc=78    " 在78列显示对齐线
+au FileType python set tw=78    " python文件文本最长宽度为78
 
 
 """"""""""
@@ -106,6 +108,7 @@ set termencoding=utf-8
 imap jj <Esc>
 nmap <leader>q :q<CR>
 nmap <leader>w :w<CR>
+nmap <leader>h :noh<CR>
 
 nmap ta 0
 nmap te $
@@ -126,7 +129,7 @@ let NERDChristmasTree = 1
 let NERDTreeHighlightCursorline = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeDirArrows = 1
-let NERDTreeIgnore=['\.pyc$']
+let NERDTreeIgnore=['\.py[co]$']
 
 
 nmap fh <c-w>h
@@ -240,3 +243,10 @@ let g:airline#extensions#syntastic#enabled=1
 let g:airline#extensions#tagbar#enabled=1
 let g:airline#extensions#tmuxline#enabled=1
 let g:airline_theme="powerlineish"
+
+"""" dash
+nmap <silent> <leader>d <Plug>DashSearch
+
+
+"""" snippets configuration
+let g:UltiSnipsExpandTrigger = <leader> s
