@@ -1,0 +1,27 @@
+#!/bin/env zsh
+
+
+# tricks
+
+mcd() { mkdir -p "$1"; cd "$1";}
+cls() { cd "$1"; ls;}
+backup() { cp "$1"{,.bak};}
+md5check() { md5sum "$1" | grep "$2";}
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias makescript="fc -rnl | head -1 >"
+alias genpasswd="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo"
+
+
+# Capter 1
+# useful path
+export CDPATH=~/workspace/botpy/Yobee-Server/ipc/:~
+
+# Capter 8
+# change history size
+HISTSIZE=10000
+
+# git
+alias gpr='git pull --rebase'

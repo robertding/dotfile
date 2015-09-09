@@ -99,18 +99,9 @@ alias gc="git commit -am"
 #alias -s h=vi
 
 export PATH="/usr/local/bin:$PATH"
+
 #
 #Productivity
-mcd() { mkdir -p "$1"; cd "$1";}
-cls() { cd "$1"; ls;}
-backup() { cp "$1"{,.bak};}
-md5check() { md5sum "$1" | grep "$2";}
-alias makescript="fc -rnl | head -1 >"
-alias genpasswd="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo"
-alias c="clear"
-alias histg="history | grep"
-alias ..='cd ..'
-alias ...='cd ../..'
 extract() {
     if [ -f $1 ] ; then
       case $1 in
@@ -131,6 +122,8 @@ extract() {
          echo "'$1' is not a valid file"
      fi
 }
+
+alias gambit="/usr/local/bin/gsi"
  
 #System info
 alias cmount="mount | column -t"
@@ -150,3 +143,9 @@ getlocation() { lynx -dump http://www.ip-adress.com/ip_tracer/?QRY=$1|grep addre
 #Funny
 kernelgraph() { lsmod | perl -e 'print "digraph \"lsmod\" {";<>;while(<>){@_=split/\s+/; print "\"$_[0]\" -> \"$_\"\n" for split/,/,$_[3]}print "}"' | dot -Tpng | display -;}
 alias busy="cat /dev/urandom | hexdump -C | grep \"ca fe\""
+
+
+# powerline
+#. /Library/Python/2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+source ~/.linux101rc

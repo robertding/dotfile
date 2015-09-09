@@ -89,12 +89,17 @@ let mapleader=" "
 set clipboard=unnamed
 
 """"""python
-au FileType python set cc=78    " 在78列显示对齐线
-au FileType python set tw=78    " python文件文本最长宽度为78
+au FileType python set cc=80    " 在80列显示对齐线
+au FileType python set tw=79    " python文件文本最长宽度为79
 
+hi ColorColumn ctermbg=234
 
-""""""""""
+"""""" line num color
+highlight LineNr ctermfg=59 ctermbg=black
 
+"""""" 
+set fillchars=""
+hi VertSplit ctermbg=NONE
 
 ""encoding setting
 
@@ -249,4 +254,4 @@ nmap <silent> <leader>d <Plug>DashSearch
 
 
 """" snippets configuration
-let g:UltiSnipsExpandTrigger = <leader> s
+let g:UltiSnipsExpandTrigger='<c-t>'
