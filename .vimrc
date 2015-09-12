@@ -255,3 +255,6 @@ nmap <silent> <leader>d <Plug>DashSearch
 
 """" snippets configuration
 let g:UltiSnipsExpandTrigger='<c-t>'
+
+"""" ctrlp
+let g:ctrlp_map='<leader> p'
