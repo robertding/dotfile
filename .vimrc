@@ -37,6 +37,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/vim-operator-highlight'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'mxw/vim-jsx'
 "" Plugin 'klen/python-mode'
 
 ""Plugin 'c.vim'
@@ -257,4 +258,5 @@ nmap <silent> <leader>d <Plug>DashSearch
 let g:UltiSnipsExpandTrigger='<c-t>'
 
 """" ctrlp
-let g:ctrlp_map='<leader> p'
+let g:ctrlp_map='<leader>p'
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,/*.pyc        " Linux/MacOSX
