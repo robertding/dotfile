@@ -149,3 +149,8 @@ alias busy="cat /dev/urandom | hexdump -C | grep \"ca fe\""
 #. /Library/Python/2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 source ~/.linux101rc
+
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+export NVM_DIR="/Users/robert/.nvm"
+## [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

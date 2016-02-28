@@ -97,6 +97,7 @@ hi ColorColumn ctermbg=234
 
 """""" line num color
 highlight LineNr ctermfg=59 ctermbg=black
+highlight Search ctermfg=59 ctermbg=231
 
 """""" 
 set fillchars=""
@@ -259,4 +260,4 @@ let g:UltiSnipsExpandTrigger='<c-t>'
 
 """" ctrlp
 let g:ctrlp_map='<leader>p'
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,/*.pyc        " Linux/MacOSX
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,/*.pyc,*/node_modules        " Linux/MacOSX
