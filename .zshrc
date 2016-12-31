@@ -154,3 +154,14 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 export NVM_DIR="/Users/robert/.nvm"
 ## [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export WORKON_HOME=$HOME/workspace/gmei/env
+export PROJECT_HOME=$HOME/workspace/gmei
+source /usr/local/bin/virtualenvwrapper.sh
+
+alias work=workon
+alias dea=deactivate
+
+eval $(thefuck --alias)

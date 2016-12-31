@@ -11,11 +11,13 @@ Plugin 'gmarik/Vundle.vim'
 
 ""plugin host on github
 Plugin 'rizzatti/dash.vim'
+Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fugitive'
@@ -136,7 +138,7 @@ let NERDChristmasTree = 1
 let NERDTreeHighlightCursorline = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeDirArrows = 1
-let NERDTreeIgnore=['\.py[co]$']
+let NERDTreeIgnore=['\.py[co]$', '__pycache__']
 
 
 nmap fh <c-w>h
@@ -177,8 +179,6 @@ function InsertPythonComment()
     call setline('.', '#   Desc    :   ')
     normal o
     call setline('.', '#')
-    normal o
-    call setline('.', 'from __future__ import absolute_import, division, with_statement')
     call cursor(7, 17)
 endfunction
 
@@ -249,7 +249,7 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#syntastic#enabled=1
 let g:airline#extensions#tagbar#enabled=1
 let g:airline#extensions#tmuxline#enabled=1
-let g:airline_theme="powerlineish"
+let g:airline_theme='powerlineish'
 
 """" dash
 nmap <silent> <leader>d <Plug>DashSearch
